@@ -6,34 +6,39 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <title>Slideshow Background</title>
 
   <!-- External CSS -->
   <style>
-    /* CSS for responsive background image */
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+    /* Ensure full page coverage for carousel */
+    html, body {
       height: 100%;
-      z-index: -1;
-      overflow: hidden; /* Ensure image doesn't overflow */
-      transition: opacity 0.5s ease-out; /* Smooth transition between images */
+      margin: 0;
+      padding: 0;
     }
 
-    .background img {
-      width: 100%;
+    /* Center carousel items and content */
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
       height: 100%;
-      object-fit: cover; /* Cover the entire container */
+    }
+
+    .carousel-item img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
 
     /* Example style for content */
     .content {
-      padding: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       color: #fff; /* Text color */
-      position: relative;
       z-index: 1; /* Ensure content is above the background */
     }
   </style>
@@ -46,9 +51,19 @@
 <!-- Navbar -->
 <div id="navbar"></div>
 
-<!-- Background image container -->
-<div class="background">
-  <img src="imgs/landing/bg1.jpg" alt="Background Image" class="bg-image">
+<!-- Carousel container -->
+<div id="BG-Carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="imgs/landing/bg1.jpg" class="d-block w-100" alt="Background Image">
+    </div>
+    <div class="carousel-item">
+      <img src="imgs/landing/bg2.jpg" class="d-block w-100" alt="Background Image">
+    </div>
+    <div class="carousel-item">
+      <img src="imgs/landing/bg3.jpg" class="d-block w-100" alt="Background Image">
+    </div>
+  </div>
 </div>
 
 <!-- Landing page content -->
@@ -57,39 +72,16 @@
   <p>This is your landing page content.</p>
 </div>
 
-<!-- Slideshow items -->
 <div id="slideshow"></div>
 
 <!-- Bootstrap JS and other scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-  $(document).ready(function() {
-    // Load content and initialize slideshow
-    $("#noticebar").load("noticebar.html", function() {
-      $("#navbar").load("navbar.html", function() {
-        $("#slideshow").load("slideshow.html", function() {
-          // Array of image URLs for the slideshow
-          var images = [
-            "imgs/landing/bg1.jpg",
-            "imgs/landing/bg2.jpg",
-            "imgs/landing/bg3.jpg"
-          ];
-          // Function to change background image
-          function changeBackground() {
-            var currentIndex = 0;
-            setInterval(function() {
-              $(".bg-image").fadeOut(500, function() {
-                $(this).attr("src", images[currentIndex]).fadeIn(500);
-              });
-              currentIndex = (currentIndex + 1) % images.length;
-            }, 5000);
-          }
-          // Start the slideshow
-          changeBackground();
-        });
-      });
-    });
+  $(function(){
+    $("#noticebar").load("noticebar.html")
+    $("#navbar").load("navbar.html");
+    $("#slideshow").load("slideshow.html")
   });
 </script>
 </body>

@@ -3,19 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        $(function(){
-            $("#slideshow").load("overlays/slideshow.html");
-        });
-    </script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Horizontal Parallax Carousels</title>
+
+    <!-- External CSS -->
+    <style>
+        /* Ensure full page coverage for carousel */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center carousel items and content */
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 100%;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Example style for content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff; /* Text color */
+            z-index: 1; /* Ensure content is above the background */
+        }
+
+        /* Additional styling for second carousel */
+        #slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #slideshow {
+            position: relative;
+            width: 200%; /* Adjust width to the number of slides */
+            height: 100%;
+        }
+
+        .slide {
+            float: left;
+            width: 50%; /* Each slide takes 50% of container width */
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
+
+<!-- Noticebar -->
+<div id="noticebar"></div>
+
+<!-- Navbar -->
 <div id="navbar"></div>
-<div class="container">
-    <h1>Test Page</h1>
-    <p>This is a test page.</p>
+
+<!-- Main Carousel container -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="imgs/landing/bg1.jpg" class="d-block w-100" alt="Background Image">
+        </div>
+        <div class="carousel-item">
+            <img src="imgs/landing/bg2.jpg" class="d-block w-100" alt="Background Image">
+        </div>
+        <div class="carousel-item">
+            <img src="imgs/landing/bg3.jpg" class="d-block w-100" alt="Background Image">
+        </div>
+    </div>
 </div>
+
+<!-- Slideshow Carousel container loaded from slideshow.html -->
+<div id="slideshow-container">
+    <div id="slideshow">
+        <!-- This content will be replaced with the content from slideshow.html using jQuery -->
+    </div>
+</div>
+
+<!-- Bootstrap JS and other scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(function(){
+        $("#noticebar").load("noticebar.html")
+        $("#navbar").load("navbar.html");
+
+        // Load slideshow content from slideshow.html
+        $("#slideshow").load("slideshow.html", function() {
+            // Initialize second carousel after content is loaded
+            $('#slideshow .carousel').carousel();
+        });
+
+        // Horizontal parallax effect using jQuery scroll event
+        $(window).scroll(function() {
+            // Calculate and adjust position based on scroll
+            var scrollPos = $(this).scrollTop();
+            $('#slideshow').css({
+                'left' : -(scrollPos / 2) + 'px' // Adjust the division factor for desired parallax effect
+            });
+        });
+    });
+</script>
 </body>
 </html>
