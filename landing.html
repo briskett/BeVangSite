@@ -3,25 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
   <title>Slideshow Background</title>
 
   <!-- External CSS -->
   <style>
-    /* Ensure full page coverage for carousel */
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
     }
 
-    /* Center carousel items and content */
-    .carousel,
-    .carousel-inner,
-    .carousel-item {
+    .carousel, .carousel-inner, .carousel-item {
       height: 100%;
     }
 
@@ -31,15 +23,28 @@
       width: 100%;
     }
 
-    /* Example style for content */
     .content {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #fff; /* Text color */
-      z-index: 1; /* Ensure content is above the background */
+      color: #fff;
+      z-index: 1;
+    }
+
+    /* Fixed position for the slideshow */
+    #slideshow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 500px;
+      height: 300px;
+      z-index: 10;
+      border: 5px solid #FAEFD7;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: white;
     }
   </style>
 </head>
@@ -51,7 +56,7 @@
 <!-- Navbar -->
 <div id="navbar"></div>
 
-<!-- Carousel container -->
+<!-- Main Carousel container -->
 <div id="BG-Carousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -72,17 +77,56 @@
   <p>This is your landing page content.</p>
 </div>
 
+<!-- Fixed position slideshow container -->
 <div id="slideshow"></div>
 
 <!-- Bootstrap JS and other scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-  $(function(){
-    $("#noticebar").load("noticebar.html")
+  $(document).ready(function() {
+    $("#noticebar").load("noticebar.html");
     $("#navbar").load("navbar.html");
-    $("#slideshow").load("slideshow.html")
+
+    // Load slideshow.html into the fixed slideshow container
+    $("#slideshow").load("slideshow.html", function() {
+      // This callback ensures the content is fully loaded before initializing the carousel
+
+      // Check if #foodCarousel exists after loading
+      if ($('#foodCarousel').length) {
+        // Initialize BG-Carousel with a custom interval
+        $('#BG-Carousel').carousel({
+          interval: 5000 // 5 seconds interval
+        });
+
+        // Initialize foodCarousel with a custom interval
+        $('#foodCarousel').carousel({
+          interval: 5000 // 5 seconds interval
+        });
+
+        // Synchronize the carousels
+        synchronizeCarousels();
+      } else {
+        console.error("#foodCarousel not found. Make sure slideshow.html is loaded correctly.");
+      }
+    });
   });
+
+  function synchronizeCarousels() {
+    var bgCarousel = $('#BG-Carousel');
+    var foodCarousel = $('#foodCarousel');
+
+    // When the main carousel slides, move the food carousel
+    bgCarousel.on('slide.bs.carousel', function(e) {
+      var nextIndex = $(e.relatedTarget).index();
+      foodCarousel.carousel(nextIndex);
+    });
+
+    // When the food carousel slides, move the main carousel
+    foodCarousel.on('slide.bs.carousel', function(e) {
+      var nextIndex = $(e.relatedTarget).index();
+      bgCarousel.carousel(nextIndex);
+    });
+  }
 </script>
 </body>
 </html>

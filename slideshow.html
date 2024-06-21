@@ -5,28 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Slideshow</title>
   <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="custom/styles.css" rel="stylesheet"> <!-- Loads custom colored page background-->
+  <link href="custom/styles.css" rel="stylesheet"> <!-- Custom colored page background -->
   <style>
-    /* Custom styles for the slideshow container */
-    .carousel-container {
-      position: fixed; /* Fixed position */
-      bottom: 20px; /* 20px from the bottom */
-      right: 20px; /* 20px from the right */
-      width: 500px; /* Wider width */
-      height: 300px; /* Lesser height */
-      margin: 40px; /* Adjust margin for spacing */
-      border: 5px solid #FAEFD7; /* Optional: Border */
-      border-radius: 10px; /* Optional: Rounded corners */
-      overflow: hidden; /* Ensure content stays within the container */
-    }
-
-
-    .carousel-inner {
-      width: 100%;
-      height: 100%;
-    }
-
+    /* Custom styles for the carousel images */
     .carousel-item img {
       width: 100%; /* Make sure the image fits the width of the container */
       height: 100%; /* Stretch the image to fill the container's height */
@@ -39,7 +20,6 @@
     .carousel-control-next {
       width: 5%; /* Adjust control size as needed */
     }
-
   </style>
   <link href="styles.css" rel="stylesheet">
 </head>
@@ -56,7 +36,6 @@
       <div class="carousel-item">
         <img src="imgs/landing/food3.jpg" class="d-block w-100" alt="Delicious Food 3">
       </div>
-      <!-- Add more carousel items as needed -->
     </div>
     <a class="carousel-control-prev" href="#foodCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,10 +47,5 @@
     </a>
   </div>
 </div>
-
-<!-- Bootstrap JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
