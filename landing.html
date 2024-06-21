@@ -82,15 +82,15 @@
 
 <!-- Bootstrap JS and other scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   $(document).ready(function() {
+    // Load noticebar and navbar
     $("#noticebar").load("noticebar.html");
     $("#navbar").load("navbar.html");
 
     // Load slideshow.html into the fixed slideshow container
     $("#slideshow").load("slideshow.html", function() {
-      // This callback ensures the content is fully loaded before initializing the carousel
-
       // Check if #foodCarousel exists after loading
       if ($('#foodCarousel').length) {
         // Initialize BG-Carousel with a custom interval
@@ -115,16 +115,27 @@
     var bgCarousel = $('#BG-Carousel');
     var foodCarousel = $('#foodCarousel');
 
+    // Use a flag to prevent recursion
+    var syncing = false;
+
     // When the main carousel slides, move the food carousel
     bgCarousel.on('slide.bs.carousel', function(e) {
-      var nextIndex = $(e.relatedTarget).index();
-      foodCarousel.carousel(nextIndex);
+      if (!syncing) {
+        syncing = true;
+        var nextIndex = $(e.relatedTarget).index();
+        foodCarousel.carousel(nextIndex);
+        setTimeout(function() { syncing = false; }, 600); // Reset after transition duration
+      }
     });
 
     // When the food carousel slides, move the main carousel
     foodCarousel.on('slide.bs.carousel', function(e) {
-      var nextIndex = $(e.relatedTarget).index();
-      bgCarousel.carousel(nextIndex);
+      if (!syncing) {
+        syncing = true;
+        var nextIndex = $(e.relatedTarget).index();
+        bgCarousel.carousel(nextIndex);
+        setTimeout(function() { syncing = false; }, 600); // Reset after transition duration
+      }
     });
   }
 </script>
