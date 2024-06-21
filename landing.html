@@ -6,6 +6,8 @@
   <title>Slideshow Background</title>
 
   <!-- External CSS -->
+  <link href="custom/landing/reviews.css" rel="stylesheet">
+
   <style>
     html, body {
       height: 100%;
@@ -58,6 +60,12 @@
       overflow: hidden;
       background-color: white;
     }
+
+    .colored-bar {
+      height: 60px; /* Adjust height as needed */
+      background-color: #1a1610; /* Your desired background color */
+    }
+
   </style>
 </head>
 <body>
@@ -83,7 +91,7 @@
   </div>
 </div>
 
-<!-- Transparent Yellow Background -->
+<!-- Transparent Paige Background -->
 <div class="background"></div>
 
 <!-- Landing page content -->
@@ -96,6 +104,46 @@
 
 <!-- Fixed position slideshow container -->
 <div id="slideshow"></div>
+
+<!-- Colored bar -->
+<div class="colored-bar"></div>
+
+<!-- Reviews section -->
+<section class="reviews">
+  <div class="review-card">
+    <img src="imgs/reviews/review1.jpg" alt="Review Image 1">
+    <div class="review-content">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="reviewer">
+        <img src="imgs/reviews/reviewer1.jpg" alt="Reviewer 1" width="50" height="50">
+        <span>Jane Doe</span>
+      </div>
+    </div>
+  </div>
+  <div class="review-card">
+    <img src="imgs/reviews/review2.jpg" alt="Review Image 2">
+    <div class="review-content">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="reviewer">
+        <img src="imgs/reviews/reviewer2.jpg" alt="Reviewer 2" width="50" height="50">
+        <span>John Smith</span>
+      </div>
+    </div>
+  </div>
+  <div class="review-card">
+    <img src="imgs/reviews/review3.jpg" alt="Review Image 3">
+    <div class="review-content">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="reviewer">
+        <img src="imgs/reviews/reviewer3.jpg" alt="Reviewer 3" width="50" height="50">
+        <span>Mary Johnson</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Bootstrap JS and other scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
