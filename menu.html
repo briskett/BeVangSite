@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta topic="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Page</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="custom/menu/carousel/carousel.css" rel="stylesheet">
     <script>
         $(function(){
             $("#noticebar").load("noticebar.html")
@@ -16,13 +17,158 @@
 <body>
 <div id="noticebar"></div>
 <div id="navbar"></div>
-<div class="container">
-    <h1>Ordering From</h1>
-    <h1>District 5</h1>
-    <h4>261 - 263 An Dương Vương P3. Q5 TP.HCM</h4>
-    <p>Every dish is made by our Chef & photographed in-house</p>
+
+
+<!-- Carousel Blur for Menu -->
+<div class="carousel">
+    <div class="list">
+        <!-- Item #1-->
+        <div class="item">
+            <img src="imgs/menu/carousel/img1.png">
+            <div class="intro">
+                <div class="title">
+                    title
+                </div>
+                <div class="topic">
+                    topic
+                </div>
+                <div class="des">
+                    Description
+                </div>
+                <button class="seeMore">
+                    See more &#8599
+                </button>
+            </div>
+            <div class="detail">
+                <div class="title">
+                    title
+                </div>
+                <div class="des">
+                    description
+                </div>
+            </div>
+        </div>
+        <!-- Item #2-->
+        <div class="item">
+            <img src="imgs/menu/carousel/img2.png">
+            <div class="intro">
+                <div class="title">
+                    Entree
+                </div>
+                <div class="topic">
+                    Fried Rice
+                </div>
+                <div class="des">
+                    It's fried rice bro idk
+                </div>
+                <button class="seeMore">
+                    See more &#8599
+                </button>
+            </div>
+            <div class="detail">
+                <div class="title">
+                    FRI RI
+                </div>
+                <div class="des">
+                    SUPER LONG DESCRIPTION YEEHAW
+                </div>
+            </div>
+        </div>
+        <!-- Item #3-->
+        <div class="item">
+            <img src="imgs/menu/carousel/img3.png">
+            <div class="intro">
+                <div class="title">
+                    title
+                </div>
+                <div class="topic">
+                    topic
+                </div>
+                <div class="des">
+                    Description
+                </div>
+                <button class="seeMore">
+                    See more &#8599
+                </button>
+            </div>
+            <div class="detail">
+                <div class="title">
+                    title
+                </div>
+                <div class="des">
+                    description
+                </div>
+            </div>
+        </div>
+        <!-- Item #4-->
+        <div class="item">
+            <img src="imgs/menu/carousel/img4.png">
+            <div class="intro">
+                <div class="title">
+                    title
+                </div>
+                <div class="topic">
+                    Pulse
+                </div>
+                <div class="des">
+                    best r6 op
+                </div>
+                <button class="seeMore">
+                    See more &#8599
+                </button>
+            </div>
+            <div class="detail">
+                <div class="title">
+                    title
+                </div>
+                <div class="des">
+                    description
+                </div>
+            </div>
+        </div>
+        <!-- Item #5-->
+        <div class="item">
+            <img src="imgs/menu/carousel/img5.png">
+            <div class="intro">
+                <div class="title">
+                    Cat
+                </div>
+                <div class="topic">
+                    Red
+                </div>
+                <div class="des">
+                    best cat
+                </div>
+                <button class="seeMore">
+                    See more &#8599
+                </button>
+            </div>
+            <div class="detail">
+                <div class="title">
+                    Red, the cat
+                </div>
+                <div class="des">
+                    I miss my cat :(
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Ordering From District 5</h1>
+        <p>261 - 263 An Dương Vương P3. Q5 TP.HCM</p>
+        <p>Every dish is made by our Chef & photographed in-house</p>
+    </div>
+    <div class="arrows">
+        <button id="prev"><</button>
+        <button id="back">Go Back &#8599</button>
+        <button id="next">></button>
+    </div>
 </div>
+
+
+
 <div id="menubar"></div>
+<script src="custom/menu/carousel/carousel.js"></script>
 </body>
 </html>
 
