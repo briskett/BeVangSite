@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(253, 226, 173, 0.52);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#dishes {
+    text-align: center;
+    background-color: #1a140c;
+}
+
+.arc-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust based on image size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arc-image {
+    position: absolute;
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    transition: transform 1s;
+}
+
+.arc-image:nth-child(1) {
+    transform: translate(-150px, -50px);
+}
+
+.arc-image:nth-child(2) {
+    transform: translate(0, -150px);
+}
+
+.arc-image:nth-child(3) {
+    transform: translate(150px, -50px);
+}
+
+
+#event-hosting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between event-hosting sections */
+}
+
+.event-hosting {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between caption and gallery */
+    background-color: #262018; /* Dark background to match the example */
+    padding: 20px; /* Padding around the sections */
+    border-radius: 10px; /* Rounded corners for a more polished look */
+}
+
+.event-hosting2 {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between caption and gallery */
+    background-color: #1a140c; /* Dark background to match the example */
+    padding: 20px; /* Padding around the sections */
+    border-radius: 10px; /* Rounded corners for a more polished look */
+}
+
+.event-hosting .caption, .event-hosting2 .caption {
+    flex: 1;
+    color: #fff; /* White text for better contrast */
+}
+
+.event-hosting .gallery, .event-hosting2 .gallery2 {
+    display: flex;
+    flex: 1.5;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+}
+
+.event-hosting .gallery img, .event-hosting2 .gallery2 img {
+    width: calc(50% - 10px); /* Adjust image size to fit two per row */
+    border-radius: 5px; /* Slight rounding of image corners */
+}
+
+.event-hosting2 .gallery2 img {
+    width: 100%; /* Single image takes full width */
+}
+
+/* Make sure the layout is responsive */
+@media (max-width: 768px) {
+    .event-hosting, .event-hosting2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-hosting .gallery, .event-hosting2 .gallery2 {
+        justify-content: center;
+    }
+
+    .event-hosting .gallery img, .event-hosting2 .gallery2 img {
+        width: 100%; /* Full width images on smaller screens */
+    }
+}
+
+
+#vip99 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    max-height: 800px;
+    background-color: #262018;
+}
+
+.vip99 img {
+    width: 80%;
+    height: auto;
+}
+
+.vip99 p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    z-index: 9;
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
+.mySlides img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.book-now {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    opacity: 0.7;
+    z-index: 99;
+}
+
+.book-now:hover {
+    opacity: 1;
+}

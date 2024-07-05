@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Page</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="custom/dining/page.css">
+</head>
+<body>
+<div id="navbar"></div>
+<main>
+
+    <section id="dishes">
+    <div class="arc-container">
+        <img src="imgs/dining/foods/img1.png" alt="Dish 1" class="arc-image">
+        <img src="imgs/dining/foods/img2.png" alt="Dish 2" class="arc-image">
+        <img src="imgs/dining/foods/img3.png" alt="Dish 3" class="arc-image">
+    </div>
+        <h1>At Be Vang we always talk food first</h1>
+        <p>Serve in Courses or All at Once</p>
+    </section>
+
+    <section id="event-hosting">
+        <div class="event-hosting">
+            <div class="caption">
+                <p>Experience the care and attention to detail from our food to our service. Your guests will never forget the experience you helped create when hosting with Be Vang.</p>
+            </div>
+            <div class="gallery">
+                <img src="imgs/dining/happy/happy5.png" alt="happy 1">
+                <img src="imgs/dining/happy/happy2.png" alt="happy 2">
+                <img src="imgs/dining/happy/happy3.png" alt="happy 3">
+                <img src="imgs/dining/happy/happy4.png" alt="happy 4">
+            </div>
+        </div>
+        <div class="event-hosting2">
+            <div class="caption">
+                <p>Our Seductive Women are ready to serve you. A dedicated team with pride and multiple years of experience happy to serve all of our guests.</p>
+            </div>
+            <div class="gallery2">
+                <img src="imgs/dining/happy/happy1.png" alt="Event Hosting image">
+            </div>
+        </div>
+    </section>
+
+    <section id="vip99">
+        <div class="vip99">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="imgs/dining/vip_rooms/VIP58.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="imgs/dining/vip_rooms/VIP77.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="imgs/dining/vip_rooms/VIP88.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="imgs/dining/vip_rooms/VIP99.png" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <p>Enjoy exclusive dining in a lavish environment.</p>
+            <button id="bookNowBtn" class="book-now">Book Now</button>
+        </div>
+    </section>
+</main>
+<script src="custom/dining/photoring.js"></script>
+<script src="custom/dining/vipslide.js"></script>
+<!-- <script>
+    $(function(){
+        $("#navbar").load("navbar.html");
+    });
+</script> -->
+</body>
+</html>
